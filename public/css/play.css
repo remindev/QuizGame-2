@@ -1,0 +1,173 @@
+@import url('https://fonts.googleapis.com/css2?family=Bungee+Spice&family=Inter&family=Rubik+Dirt&family=Rubik:wght@600&display=swap');
+
+* {
+    padding: 0;
+    margin: 0;
+    outline: none;
+    font-family: 'Inter', sans-serif;
+}
+
+:root {
+    --color: black;
+    --color-dim: rgb(57, 57, 57);
+}
+
+/* title */
+.title-cont {
+    width: 100%;
+    height: 60px;
+    padding-top: 5px;
+    position: fixed;
+    color: var(--color-dim);
+    border-bottom: 1px solid rgb(179, 179, 179);
+    background-color: white;
+    display: flex;
+    align-items: center;
+    z-index: 10;
+}
+
+.title-cont .container{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.title-cont h4 {
+    position: absolute;
+    left: 15px;
+    padding: 0;
+    text-transform: capitalize;
+    cursor: pointer;
+    font-family: 'Bungee Spice', cursive;
+    top: 50%;
+    transform: translateY(-50%);
+    /* font-family: 'Rubik Dirt', cursive; */
+}
+
+.title-cont .right {
+    position: absolute;
+    right: 15px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    height: 100%;
+    cursor: pointer;
+}
+
+.title-cont .right img {
+    width: 25px;
+}
+
+/* level-info */
+.level-info{
+    font-size: 20px;
+    font-weight: bold;
+    text-transform: capitalize;
+    user-select: none;
+}
+.level-info .dim{
+    font-size: medium;
+    color: gray;
+}
+
+/* game submit portion */
+.game-sub-cont{
+    position: fixed;
+    bottom: 0px;
+    padding-top: 15px;
+    padding-bottom: 30px;
+    width: 100%;
+    background-color: white;
+}
+.game-sub-cont .container {
+    display:grid;
+    grid-template-columns: auto min-content;
+    gap: 10px;
+    position: relative;
+}
+.game-sub-cont button{
+    padding: 10px 30px;
+    background-color: rgb(102, 102, 255);
+    color: white;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+    transition: all .2s;
+}
+.game-sub-cont button:hover{
+    background-color: rgb(72, 72, 225);
+}
+.game-sub-cont input{
+    width: 100%;
+    padding: 5px 15px;
+    border-radius: 3px;
+    border: 1px solid rgb(122, 122, 122);
+}
+.game-sub-cont input.good{
+    border: 1px solid rgb(58, 169, 54);
+}
+.game-sub-cont input.error{
+    border: 1px solid rgb(225, 73, 73);
+}
+.game-sub-cont .err-disp{
+    background-color: rgb(248, 154, 154);
+    padding: 10px 20px;
+    width: calc(100% - 25px);
+    left: 12.5px;
+    border-radius: 4px;
+    position: absolute;
+    color: white;
+    font-weight: bold;
+    transition: all .5s;
+    z-index: -1;
+    animation: popup .1s ease-in-out;
+    animation-fill-mode: forwards; 
+}
+@keyframes popup {
+    from{transform: translateY(-60%);}
+    to{transform: translateY(-120%);}
+}
+
+
+
+/* question of game  */
+.game-q-cont{
+    user-select: none;
+}
+
+/* after every correct answer */
+.play-sucess-anum{
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    z-index: 5;
+    background-color: white;
+}
+.play-sucess-anum img{
+    width: 300px;
+    margin-bottom: 20px;
+}
+.play-sucess-anum .btn-cont{
+    margin-top: 20px;
+}
+.play-sucess-anum .btn-cont button{
+    padding: 10px 20px;
+    background-color: rgb(102, 102, 255);
+    color: white;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+    transition: all .2s;
+    margin-right: 5px;
+}
+.play-sucess-anum .btn-cont button:hover{
+    background-color: rgb(72, 72, 225);
+}

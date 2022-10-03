@@ -1,0 +1,135 @@
+@import url('https://fonts.googleapis.com/css2?family=Bungee+Spice&family=Inter&family=Rubik+Dirt&family=Rubik:wght@600&display=swap');
+
+* {
+    padding: 0;
+    margin: 0;
+    outline: none;
+    font-family: 'Inter', sans-serif;
+    user-select: none;
+}
+
+:root {
+    --color: black;
+    --color-dim: rgb(57, 57, 57);
+}
+
+/* title */
+.title-cont {
+    width: 100%;
+    height: 60px;
+    padding-top: 5px;
+    position: fixed;
+    background-color: rgb(255, 255, 255);
+    color: var(--color-dim);
+    border-bottom: 1px solid rgb(179, 179, 179);
+    display: flex;
+    align-items: center;
+    z-index: 10;
+}
+
+.title-cont h4 {
+    text-transform: capitalize;
+    cursor: pointer;
+    font-family: 'Bungee Spice', cursive;
+    /* font-family: 'Rubik Dirt', cursive; */
+}
+
+.title-cont .right {
+    position: absolute;
+    right: 15px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    height: 100%;
+    cursor: pointer;
+}
+
+.title-cont .right img {
+    width: 25px;
+}
+
+/* title-2 */
+.title-2-cont h2 {
+    font-family: 'Rubik', sans-serif;
+}
+
+/* level container */
+.list-levels {
+    width: 100%;
+    position: relative;
+    top: 20px;
+}
+
+.list-levels .level {
+    list-style: none;
+    padding: 0;
+    display: grid;
+    --width: 200px;
+    grid-template-columns: var(--width) var(--width) var(--width) var(--width) var(--width) var(--width);
+    gap: 20px;
+}
+
+.list-levels .level li {
+    width: 100%;
+    padding: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid rgb(183, 183, 183);
+    border-radius: 5px;
+    font-family: 'Rubik Dirt', cursive;
+    font-size: 20px;
+    text-transform: capitalize;
+    background: linear-gradient(to top right, rgba(73, 97, 135, 0.218), rgba(163, 113, 80, 0.243));
+    cursor: pointer;
+    box-shadow: 0 0 25px 5px rgba(0, 0, 0, 0);
+    transition: all .2s;
+    word-wrap: normal;
+    white-space: nowrap;
+}
+
+.list-levels .level li:hover {
+    box-shadow: 0 0 25px 5px rgba(0, 0, 0, 0.208);
+}
+
+.list-levels .level li img {
+    width: 35px;
+    margin-right: 5px;
+}
+
+
+@media screen and (max-width:576px) {
+    .list-levels .level {
+        grid-template-columns: auto;
+    }
+
+    .list-levels .level li {
+        height: 200px;
+    }
+}
+
+@media screen and (min-width:576px) {
+    .list-levels .level {
+        grid-template-columns: auto auto;
+    }
+    .list-levels .level li {
+        height: 200px;
+    }
+}
+@media screen and (min-width:768px) {
+    .list-levels .level {
+        grid-template-columns: auto auto auto;
+    }
+}
+@media screen and (min-width:992px) {
+    .list-levels .level {
+        grid-template-columns: auto auto auto auto;
+    }
+}
+@media screen and (min-width:1400px) {
+    .list-levels .level {
+        grid-template-columns: auto auto auto auto auto;
+    }
+}

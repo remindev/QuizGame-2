@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="cache-control" content="private, max-age=0, no-cache">
+    <meta http-equiv="pragma" content="no-cache">
+    <meta http-equiv="expires" content="0">
+    <title>Document</title>
+    <link rel="stylesheet" href="css/login.css">
+</head>
+
+<body>
+    <div class="content-container" id="content_container">
+
+        <%-body%>
+
+    </div>
+
+    <div class="already_exists" id="already_exists" style="display:none;">
+        <h2>Already login as : <span id="type_of_user"></span> </h2>
+        <button onclick="window.location.href='/'">Go to home page</button>
+        <button onclick="AuthJs.logout()">Logout and continue</button>
+    </div>
+
+    <script src="/js/auth.js"></script>
+    <script>
+        function submit(action) {
+
+            if (action == 'login') {
+
+                let email = document.getElementById("email_input");
+                let password = document.getElementById("password_input");
+                let err = document.getElementById("error_disp");
+
+                AuthJs.login(email, password, err);
+
+            } else if (action == 'signup') {
+
+                let email = document.getElementById("email_input");
+                let password = document.getElementById("password_input");
+                let conform = document.getElementById("password_input_cnf");
+                let err = document.getElementById("error_disp");
+
+                AuthJs.signup(email, password, conform, err);
+
+            } else if (action == 'guest') {
+
+                let err = document.getElementById("error_disp");
+
+                AuthJs.guest(err);
+
+            }
+
+        }
+    </script>
+
+</body>
+
+</html>
