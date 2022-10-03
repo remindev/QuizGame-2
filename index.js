@@ -72,11 +72,11 @@ app.use(async (req, res, next) => {
                 db[j] = db[j + 1];
                 db[j + 1] = temp;
 
-            }
+            };
 
-        }
+        };
 
-    }
+    };
 
     gdb = db; // 3 
 
