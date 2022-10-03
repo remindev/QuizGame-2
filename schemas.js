@@ -42,7 +42,7 @@ function logger(auth,game){
     if(++DBConnected == DBNumber){ // if both db's time data is arrived 
 
         // logs the time taken to connected to console
-        console.log(`-- DB connected in : Auth ${DBTimeRemorder.authTime-DBDelay}ms, Game ${DBTimeRemorder.gameTime-DBDelay}ms`);
+        console.log(`[-] DB connected in : Auth ${DBTimeRemorder.authTime-DBDelay}ms, Game ${DBTimeRemorder.gameTime-DBDelay}ms`);
 
     };
 
