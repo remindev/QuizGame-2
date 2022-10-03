@@ -448,6 +448,6 @@ app.use((req, res) => {
 
 // listen on port | start's server
 app.listen(appConfig.port, () => {
-    console.log(`-- Server is started at port : ${appConfig.port}`);
+    console.log(`[-] Server is started at port : ${appConfig.port}`);
 });
 
