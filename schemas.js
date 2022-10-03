@@ -27,24 +27,26 @@ dbLevel.once('open', () => logger("",new Date) ); // run once after the db is co
 
 
 // printing connnection status of each db
-var DBNumber = 2;
 
-var DBConnected = 0;
+var DBNumber = 2; // number of databases
 
-var DBTimeRemorder = {
-    
-}
+var DBConnected = 0; // number of ba connected
+
+var DBTimeRemorder = {}; // time data for db connectied
 
 function logger(auth,game){
 
-    DBTimeRemorder.authTime = auth!=""?auth:DBTimeRemorder.authTime;
-    DBTimeRemorder.gameTime = game!=""?game:DBTimeRemorder.gameTime;
+    DBTimeRemorder.authTime = auth!=""?auth:DBTimeRemorder.authTime; // updating time taken to connect to user db
+    DBTimeRemorder.gameTime = game!=""?game:DBTimeRemorder.gameTime; // updating time taken to connect to game db
 
-    if(++DBConnected == DBNumber){
-        console.log(`> DB: Auth ${DBTimeRemorder.authTime-DBDelay}ms, Game ${DBTimeRemorder.gameTime-DBDelay}ms`);
-    }
-}
+    if(++DBConnected == DBNumber){ // if both db's time data is arrived 
 
+        // logs the time taken to connected to console
+        console.log(`-- DB connected in : Auth ${DBTimeRemorder.authTime-DBDelay}ms, Game ${DBTimeRemorder.gameTime-DBDelay}ms`);
+
+    };
+
+};
 
 
 /**
@@ -68,8 +70,12 @@ const userSchema = new mongoose.Schema({
     UID: String
 });
 
-export let user = AuthDB.model('users', userSchema);
+export let user = AuthDB.model('users', userSchema); // exports user schema | db - users
 
+
+/**
+ * game level schema
+ */
 const codeGame = new mongoose.Schema({
     level: Number,
     title: String,
@@ -77,4 +83,4 @@ const codeGame = new mongoose.Schema({
     answer: String
 });
 
-export let levels = dbLevel.model('levels', codeGame);
+export let levels = dbLevel.model('levels', codeGame); // exports games schema | db - projects
