@@ -446,9 +446,11 @@ app.use((req, res) => {
 
 });
 
+const host = '0.0.0.0';
+
 
 // listen on port | start's server
-app.listen(appConfig.port, () => {
+app.listen(appConfig.port,host, () => {
     console.log(`[-] Server is started at port : ${appConfig.port}`);
 });
 
