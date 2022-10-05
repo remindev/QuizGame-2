@@ -6,7 +6,10 @@ import session from 'express-session'; // sessons importing
 
 import ConnectMongoDBSession from 'connect-mongodb-session'; // sesson and storage
 
-import dotenv from 'dotenv'; // importing dot env 
+// import dotenv from 'dotenv'; // importing dot env   |
+//                                                 //  |  uncomment when at developement
+// dotenv.config(); // configuring dot env             |
+
 
 import * as Auth from './auth.js'; // importing self made auth module
 
@@ -16,8 +19,6 @@ import * as DBS from './schemas.js'; // improting skemas
 var gdb = []; // to store the array of game level list | gdb for game data base
 
 const mongoDBSession = ConnectMongoDBSession(session); // initializing connect-mongodb-sesson
-
-dotenv.config(); // configuring dot env
 
 const app = Express(); // initailising express to app 
 

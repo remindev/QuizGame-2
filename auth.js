@@ -1,10 +1,10 @@
-import dotenv from 'dotenv'; // importing dot env
+// import dotenv from 'dotenv'; // importing dot env   |
+//                                                 //  |  uncomment when at developement
+// dotenv.config(); // configuring dot env             |
 
 import bcript from 'bcryptjs'; // importing bcrypt to
 
 import * as DBS from './schemas.js'; // improting skemas
-
-dotenv.config(); // configuring dot env
 
 /**
  * Generates a random id with length control
