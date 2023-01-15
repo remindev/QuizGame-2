@@ -2,7 +2,7 @@
 
 **This is web app buit using node, express, mongodb**
 
-**Fratures**
+**Features**
 * All the user data and passwords are saved in MongoDB
 * All levels and game data is stored in MongoDB
 * Uses session and cookie to login and Presist the user logged in.
