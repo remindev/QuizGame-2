@@ -126,6 +126,7 @@ app.use(function (req, res, next) {
 
 app.use((req,res,next)=>{
     res.locals.base_url = baseUrl;
+    next();
 })
 
 // home page | / normal endpoint
