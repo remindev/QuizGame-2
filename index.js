@@ -24,7 +24,7 @@ const app = Express(); // initailising express to app
 
 const appConfig = {
     name: "coding", // app name
-    port: process.env.PORT | 8080 // port provided by the enveronment or 8080 
+    port: process.env.PORT | 6002 // port provided by the enveronment or 8080 
 }
 
 const __dirname = process.cwd(); // initializing current working directory
