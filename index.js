@@ -124,6 +124,9 @@ app.use(function (req, res, next) {
     next();
 });
 
+app.use((req,res,next)=>{
+    res.locals.base_url = baseUrl;
+})
 
 // home page | / normal endpoint
 app.get(`${baseUrl}/`, Auth.mustLogin, (req, res) => {
