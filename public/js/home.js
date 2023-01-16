@@ -16,7 +16,7 @@ const Auth = {
     
             data = await data.json();
     
-            window.location.href = '/login';
+            window.location.href = `${base_url}/login`;
 
         } catch (error) {
             console.log(error);

@@ -82,7 +82,7 @@ var AuthJs = {
 
                     } else {
                         dispState(res.message, true);
-                        window.location.href = '/';
+                        window.location.href = `${base_url}/`;
                     }
 
                 })
@@ -191,7 +191,7 @@ var AuthJs = {
 
                     } else {
                         dispState(res.message, true);
-                        window.location.href = '/';
+                        window.location.href = `${base_url}/`;
                     }
 
                 })
@@ -244,7 +244,7 @@ var AuthJs = {
 
                 } else {
                     dispState(res.message, true);
-                    window.location.href = '/';
+                    window.location.href = `${base_url}/`;
                 }
 
             })
@@ -274,7 +274,7 @@ var AuthJs = {
                 already.style.display = 'none';
             }
 
-            window.location.href = '/login';
+            window.location.href = `${base_url}/login`;
 
         } catch (error) {
             console.log(error);
