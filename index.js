@@ -90,7 +90,7 @@ app.use(Express.json()); // to get data from req body
 
 app.use(ExpressLayouts); // using ejs layouit as middleware
 
-app.use(Express.static(`${__dirname}/public`)); // serving static files
+app.use(`${baseUrl}`,Express.static(`${__dirname}/public`)); // serving static files
 
 /*
     Middleware function
