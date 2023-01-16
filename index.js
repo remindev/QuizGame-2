@@ -29,6 +29,7 @@ const appConfig = {
 
 const __dirname = process.cwd(); // initializing current working directory
 
+const baseUrl = '/quiz-b';
 
 
 app.set("view engine", 'ejs'); // setting view engine to ejs
@@ -125,7 +126,7 @@ app.use(function (req, res, next) {
 
 
 // home page | / normal endpoint
-app.get('/', Auth.mustLogin, (req, res) => {
+app.get(`${baseUrl}/`, Auth.mustLogin, (req, res) => {
 
     // adding data to data object nessesory for rendering the home page | EJS
     let data = {
@@ -141,7 +142,7 @@ app.get('/', Auth.mustLogin, (req, res) => {
 });
 
 // play game route | / normal endpoint
-app.get('/play', Auth.mustLogin, (req, res) => {
+app.get(`${baseUrl}/play`, Auth.mustLogin, (req, res) => {
 
     let level = req.query.level; // getting level query form request url || ex.. /play?level=lv_1
     let levelNO = level.split('_')[1]; // to get the value after '_' from the url
@@ -221,7 +222,7 @@ app.get('/play', Auth.mustLogin, (req, res) => {
 });
 
 // check answer | / api
-app.post('/answerCheck', async (req, res) => {
+app.post(`${baseUrl}/answerCheck`, async (req, res) => {
 
     let allAnswers = gdb; // all games data
 
@@ -297,7 +298,7 @@ app.post('/answerCheck', async (req, res) => {
 
 
 // login page | / normal endpoint
-app.get("/login", Auth.mustLogout, (req, res) => {
+app.get(`${baseUrl}/login`, Auth.mustLogout, (req, res) => {
 
     // check if theh user is logged out using the custom made 'mustLogout' middleware.
 
@@ -307,7 +308,7 @@ app.get("/login", Auth.mustLogout, (req, res) => {
 });
 
 // signin page | / normal endpoint
-app.get("/signup", Auth.mustLogout, (req, res) => {
+app.get(`${baseUrl}/signup`, Auth.mustLogout, (req, res) => {
 
     // check if theh user is logged out using the custom made 'mustLogout' middleware.
 
@@ -318,7 +319,7 @@ app.get("/signup", Auth.mustLogout, (req, res) => {
 
 
 // login with email and password | / api
-app.post("/login", Auth.mustLogoutApi, (req, res) => {
+app.post(`${baseUrl}/login`, Auth.mustLogoutApi, (req, res) => {
 
     // this endpoint is used to validate the inputs from user and login a existing user
 
@@ -360,7 +361,7 @@ app.post("/login", Auth.mustLogoutApi, (req, res) => {
 });
 
 // signin using email and password | / api
-app.post("/signup", Auth.mustLogoutApi, (req, res) => {
+app.post(`${baseUrl}/signup`, Auth.mustLogoutApi, (req, res) => {
 
     // this endpoint is for validating and create new user and logs user for first time
     // this endpoint is only acessable if user is logged out
@@ -407,7 +408,7 @@ app.post("/signup", Auth.mustLogoutApi, (req, res) => {
 });
 
 // login as guest | / api
-app.post("/guestLogin", Auth.mustLogoutApi, (req, res) => {
+app.post(`${baseUrl}/guestLogin`, Auth.mustLogoutApi, (req, res) => {
 
     // this endpoint is only acessable if usr is not logged in 
 
@@ -427,7 +428,7 @@ app.post("/guestLogin", Auth.mustLogoutApi, (req, res) => {
 });
 
 // logout
-app.post('/logout', Auth.mustLoginApi, (req, res) => {
+app.post(`${baseUrl}/logout`, Auth.mustLoginApi, (req, res) => {
     req.session.destroy();
     res.send({ status: "sucess", message: 'Logout sucess' });
 });
