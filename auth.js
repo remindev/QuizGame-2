@@ -6,7 +6,7 @@ import bcript from 'bcryptjs'; // importing bcrypt to
 
 import * as DBS from './schemas.js'; // improting skemas
 
-const baseUrl = 'test-b';
+const baseUrl = 'quiz-b';
 
 /**
  * Generates a random id with length control
