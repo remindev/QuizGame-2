@@ -6,6 +6,8 @@ import bcript from 'bcryptjs'; // importing bcrypt to
 
 import * as DBS from './schemas.js'; // improting skemas
 
+const baseUrl = 'test-b';
+
 /**
  * Generates a random id with length control
  *
@@ -393,7 +395,7 @@ export function mustLogin(req, res, next) {
 
         // is there is no user is logged in, client is redirected to login page
 
-        res.redirect('/login');
+        res.redirect(`${baseUrl}/login`);
 
     } else {
 
@@ -434,7 +436,7 @@ export function mustLogout(req, res, next) {
         // user is loged in 
 
         // redirect user to home page
-        res.redirect('/');
+        res.redirect(`${baseUrl}/`);
 
     } else {
         
