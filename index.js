@@ -90,7 +90,7 @@ app.use(Express.json()); // to get data from req body
 
 app.use(ExpressLayouts); // using ejs layouit as middleware
 
-app.use(`${baseUrl}`,Express.static(`${__dirname}/public`)); // serving static files
+app.use(`${baseUrl}`, Express.static(`${__dirname}/public`)); // serving static files
 
 /*
     Middleware function
@@ -124,7 +124,7 @@ app.use(function (req, res, next) {
     next();
 });
 
-app.use((req,res,next)=>{
+app.use((req, res, next) => {
     res.locals.base_url = baseUrl;
     next();
 })
@@ -134,6 +134,7 @@ app.get(`${baseUrl}/`, Auth.mustLogin, (req, res) => {
 
     // adding data to data object nessesory for rendering the home page | EJS
     let data = {
+        base_url: baseUrl,
         appName: appConfig.name,
         currentPage: "home",
         title: appConfig.name,
@@ -181,6 +182,7 @@ app.get(`${baseUrl}/play`, Auth.mustLogin, (req, res) => {
 
             // adding nessesory data to render play page 
             let data = {
+                base_url: baseUrl,
                 appName: appConfig.name,
                 currentPage: "play",
                 title: appConfig.name,
@@ -197,7 +199,7 @@ app.get(`${baseUrl}/play`, Auth.mustLogin, (req, res) => {
             // if the user passed the level higher than the level unlocked
 
             // redirecting the user to the higher lever the user unlocked
-            res.redirect(`/play?level=lv_${req.user.level}`);
+            res.redirect(`${baseUrl}/play?level=lv_${req.user.level}`);
         }
 
     } else {
@@ -217,7 +219,7 @@ app.get(`${baseUrl}/play`, Auth.mustLogin, (req, res) => {
             // if the request is completely invalid 
 
             // user is redirected to the higher level unlocked by the user
-            res.redirect(`/play?level=lv_${req.user.level}`);
+            res.redirect(`${baseUrl}/play?level=lv_${req.user.level}`);
 
         };
 
