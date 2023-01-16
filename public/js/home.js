@@ -4,7 +4,7 @@ const Auth = {
 
         try {
             
-            var data = await fetch('/logout',{
+            var data = await fetch(`${base_url}/logout`,{
                 method:'POST',
                 headers:{
                     'Content-Type': 'application/json'

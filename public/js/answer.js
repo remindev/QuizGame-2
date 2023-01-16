@@ -15,7 +15,7 @@ const App = {
         err_disp.style.display = 'none';
 
         try{
-            var data = await fetch('/answerCheck', {
+            var data = await fetch(`${base_url}/answerCheck`, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'

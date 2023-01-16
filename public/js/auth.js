@@ -1,4 +1,3 @@
-
 var AuthJs = {
     /**
      * @param {Element} emailInput 
@@ -38,21 +37,16 @@ var AuthJs = {
         }
 
         if (email.match(/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/)) {
-
             // good
-
         } else {
-
             dispState("Enter a valid email");
             bothGood = false;
-
         }
 
         if (bothGood == true) {
-
             dispState('Loading...', true);
 
-            fetch('/login', {
+            fetch(`${base_url}/login`, {
                 method: 'POST',
                 headers: {
                     Authorization: 'Bearer abcdxyz',
@@ -161,7 +155,7 @@ var AuthJs = {
 
             dispState('Loading...', true);
 
-            fetch('/signup', {
+            fetch(`${base_url}/signup`, {
                 method: 'POST',
                 headers: {
                     Authorization: 'Bearer abcdxyz',
@@ -216,7 +210,7 @@ var AuthJs = {
             }
         }
 
-        fetch('/guestLogin', {
+        fetch(`${base_url}/guestLogin`, {
             method: 'POST',
             headers: {
                 Authorization: 'Bearer abcdxyz',
@@ -262,7 +256,7 @@ var AuthJs = {
 
         try {
 
-            var data = await fetch('/logout', {
+            var data = await fetch(`${base_url}/logout`, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'
