@@ -6,9 +6,9 @@ import session from 'express-session'; // sessons importing
 
 import ConnectMongoDBSession from 'connect-mongodb-session'; // sesson and storage
 
-// import dotenv from 'dotenv'; // importing dot env   |
+import dotenv from 'dotenv'; // importing dot env   |
 //                                                 //  |  uncomment when at developement
-// dotenv.config(); // configuring dot env             |
+dotenv.config(); // configuring dot env             |
 
 
 import * as Auth from './auth.js'; // importing self made auth module
