@@ -1,24 +1,9 @@
-<<<<<<< HEAD
-=======
-import dotenv from 'dotenv'; // importing dot env   |
-//                                                 //  |  uncomment when at developement
+import dotenv from 'dotenv'; // importing dot env   |               //  |  uncomment when at developement
 dotenv.config(); // configuring dot env             |
 
->>>>>>> 8b160f7901cffbae481a07b7bde2ac37086616ae
 import bcript from 'bcryptjs'; // importing bcrypt to
-
-import * as appMain from './index.js'
-
-if(appMain.getAppconfig().isDev){ // this statement only runs if the is dev is true in appconfig
-    
-    import('dotenv').then(dotenv=>dotenv.config()); // importing and configuring and configuring dotenv 
-
-};
-
 import * as DBS from './schemas.js'; // improting skemas
-
 const baseUrl = '/quiz-b';
-
 /**
  * Generates a random id with length control
  *
@@ -29,33 +14,21 @@ export function randomId(length) {
     // this function creates a reandom id
     // controll id length by providing length to function (< length limit >);
     // if length not provided function returns id of default length of 10
-
     // declaring required veriables
     var chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789-_'.split(''); // all charectes tobe included in id
     var str = ''; // output sting container
-
     if (!length) { // checks if any lenths are passed to function or not and runs if not
-
         // sets length as 10 || deafalt length
         length = 10;
-
     };
-
     for (var i = 0; i < length; i++) {
         // this loops runs according to the lenth provided
         // e.g.. function (100) runs this loop 100 times
-
         // adding each character to output string variable randomly
         str += chars[Math.floor(Math.random() * chars.length)];
-
     };
-
     return str;  // returns output string
-
 };
-
-
-
 /**
  * Create user function
  * This function validates the requests from clients and return user object 
@@ -263,13 +236,7 @@ export async function authInitalCheck(req, res, next) {
 export function mustLogin(req, res, next) {
     if (req.isLoggedIn == false) {
         // is there is no user is logged in, client is redirected to login page
-<<<<<<< HEAD
-        res.redirect('/login');
-=======
-
         res.redirect(`${baseUrl}/login`);
-
->>>>>>> 8b160f7901cffbae481a07b7bde2ac37086616ae
     } else {
         next(); // moves on to next function 
     };
@@ -293,12 +260,7 @@ export function mustLogout(req, res, next) {
     if (req.isLoggedIn == true) {
         // user is loged in 
         // redirect user to home page
-<<<<<<< HEAD
-        res.redirect('/');
-=======
         res.redirect(`${baseUrl}/`);
-
->>>>>>> 8b160f7901cffbae481a07b7bde2ac37086616ae
     } else {
         // user is not logged in 
         next(); // moves on to next function 

@@ -1,13 +1,7 @@
 import mongoose from "mongoose"; // importing mongoose
-<<<<<<< HEAD
-import dotenv from 'dotenv'; // importing dot env 
-=======
-
 import dotenv from 'dotenv'; // importing dot env   |
 //                                                 //  |  uncomment when at developement
->>>>>>> 8b160f7901cffbae481a07b7bde2ac37086616ae
 dotenv.config(); // configuring dot env             |
-
 var DBDelay = new Date;
 // auth db | USER
 const AuthDB = mongoose.createConnection(process.env.USERDB_URL); // connecting to db
@@ -61,9 +55,5 @@ const codeGame = new mongoose.Schema({
     question: String,
     answer: String
 });
-<<<<<<< HEAD
-export let levels = dbLevel.model('levels', codeGame); // exports games schema | db - projects
-=======
 
 export let levels = dbLevel.model('levels', codeGame); // exports games schema | db - projects
->>>>>>> 8b160f7901cffbae481a07b7bde2ac37086616ae
