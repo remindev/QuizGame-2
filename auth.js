@@ -1,3 +1,10 @@
+<<<<<<< HEAD
+=======
+import dotenv from 'dotenv'; // importing dot env   |
+//                                                 //  |  uncomment when at developement
+dotenv.config(); // configuring dot env             |
+
+>>>>>>> 8b160f7901cffbae481a07b7bde2ac37086616ae
 import bcript from 'bcryptjs'; // importing bcrypt to
 
 import * as appMain from './index.js'
@@ -9,6 +16,8 @@ if(appMain.getAppconfig().isDev){ // this statement only runs if the is dev is t
 };
 
 import * as DBS from './schemas.js'; // improting skemas
+
+const baseUrl = '/quiz-b';
 
 /**
  * Generates a random id with length control
@@ -254,7 +263,13 @@ export async function authInitalCheck(req, res, next) {
 export function mustLogin(req, res, next) {
     if (req.isLoggedIn == false) {
         // is there is no user is logged in, client is redirected to login page
+<<<<<<< HEAD
         res.redirect('/login');
+=======
+
+        res.redirect(`${baseUrl}/login`);
+
+>>>>>>> 8b160f7901cffbae481a07b7bde2ac37086616ae
     } else {
         next(); // moves on to next function 
     };
@@ -278,7 +293,12 @@ export function mustLogout(req, res, next) {
     if (req.isLoggedIn == true) {
         // user is loged in 
         // redirect user to home page
+<<<<<<< HEAD
         res.redirect('/');
+=======
+        res.redirect(`${baseUrl}/`);
+
+>>>>>>> 8b160f7901cffbae481a07b7bde2ac37086616ae
     } else {
         // user is not logged in 
         next(); // moves on to next function 

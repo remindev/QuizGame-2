@@ -2,7 +2,7 @@
 
 **This is web app buit using node, express, mongodb**
 
-**Fratures**
+**Features**
 * All the user data and passwords are saved in MongoDB
 * All levels and game data is stored in MongoDB
 * Uses session and cookie to login and Presist the user logged in.
@@ -15,15 +15,15 @@
 
 Login page
 
-![image](https://remindev.github.io/code-game/info/thump01.png)
+![image](https://remintroy.github.io/QuizGame-2/info/thump01.png)
 
 Home page
 
-![image](https://remindev.github.io/code-game/info/thump02.png)
+![image](https://remintroy.github.io/QuizGame-2/info/thump02.png)
 
 Game play
 
-![image](https://remindev.github.io/code-game/info/thump03.png)
+![image](https://remintroy.github.io/QuizGame-2/info/thump03.png)
 
 **Implimentation**
 

@@ -2,6 +2,7 @@ import Express from 'express'; // importing express form library
 import ExpressLayouts from 'express-ejs-layouts'; // importing ejs layout library
 import session from 'express-session'; // sessons importing
 import ConnectMongoDBSession from 'connect-mongodb-session'; // sesson and storage
+<<<<<<< HEAD
 import events from 'events'; // importing events
 import { log } from 'util';
 export function getAppconfig() {
@@ -12,6 +13,14 @@ export function getAppconfig() {
     };
     return appConfig;
 };
+=======
+
+import dotenv from 'dotenv'; // importing dot env   |
+//                                                 //  |  uncomment when at developement
+dotenv.config(); // configuring dot env             |
+
+
+>>>>>>> 8b160f7901cffbae481a07b7bde2ac37086616ae
 import * as Auth from './auth.js'; // importing self made auth module
 import * as DBS from './schemas.js'; // improting skemas
 
@@ -23,8 +32,22 @@ const eventEmmitter = events.EventEmitter(); // initializing events
 var gdb = []; // to store the array of game level list | gdb for game data base
 const mongoDBSession = ConnectMongoDBSession(session); // initializing connect-mongodb-sesson
 const app = Express(); // initailising express to app 
+<<<<<<< HEAD
 const __dirname = process.cwd(); // initializing current working directory
 
+=======
+
+const appConfig = {
+    name: "coding", // app name
+    port: process.env.PORT | 6002 // port provided by the enveronment or 8080 
+}
+
+const __dirname = process.cwd(); // initializing current working directory
+
+const baseUrl = '/quiz-b';
+
+
+>>>>>>> 8b160f7901cffbae481a07b7bde2ac37086616ae
 app.set("view engine", 'ejs'); // setting view engine to ejs
 app.use( // configuring sesson 
     session({
@@ -64,7 +87,13 @@ app.use(async (req, res, next) => {
 
 app.use(Express.json()); // to get data from req body
 app.use(ExpressLayouts); // using ejs layouit as middleware
+<<<<<<< HEAD
 app.use(Express.static(`${__dirname}/public`)); // serving static files
+=======
+
+app.use(`${baseUrl}`, Express.static(`${__dirname}/public`)); // serving static files
+
+>>>>>>> 8b160f7901cffbae481a07b7bde2ac37086616ae
 /*
     Middleware function
     checking if the request contains any user is logged in data if so adds some object to -
@@ -89,10 +118,22 @@ app.use(function (req, res, next) {
     next();
 });
 
+<<<<<<< HEAD
 // home page | / normal endpoint
 app.get('/', Auth.mustLogin, (req, res) => {
+=======
+app.use((req, res, next) => {
+    res.locals.base_url = baseUrl;
+    next();
+})
+
+// home page | / normal endpoint
+app.get(`${baseUrl}/`, Auth.mustLogin, (req, res) => {
+
+>>>>>>> 8b160f7901cffbae481a07b7bde2ac37086616ae
     // adding data to data object nessesory for rendering the home page | EJS
     let data = {
+        base_url: baseUrl,
         appName: appConfig.name,
         currentPage: "home",
         title: appConfig.name,
@@ -103,7 +144,12 @@ app.get('/', Auth.mustLogin, (req, res) => {
 });
 
 // play game route | / normal endpoint
+<<<<<<< HEAD
 app.get('/play', Auth.mustLogin, (req, res) => {
+=======
+app.get(`${baseUrl}/play`, Auth.mustLogin, (req, res) => {
+
+>>>>>>> 8b160f7901cffbae481a07b7bde2ac37086616ae
     let level = req.query.level; // getting level query form request url || ex.. /play?level=lv_1
     let levelNO = level.split('_')[1]; // to get the value after '_' from the url
     let flag = false; // flag to find level user passed in url is valid or not
@@ -130,6 +176,7 @@ app.get('/play', Auth.mustLogin, (req, res) => {
             // if the level is unlocked level
             // adding nessesory data to render play page 
             let data = {
+                base_url: baseUrl,
                 appName: appConfig.name,
                 currentPage: "play",
                 title: appConfig.name,
@@ -142,7 +189,7 @@ app.get('/play', Auth.mustLogin, (req, res) => {
         } else {
             // if the user passed the level higher than the level unlocked
             // redirecting the user to the higher lever the user unlocked
-            res.redirect(`/play?level=lv_${req.user.level}`);
+            res.redirect(`${baseUrl}/play?level=lv_${req.user.level}`);
         }
     } else {
         // if the requested level id invalid or not in database
@@ -154,13 +201,23 @@ app.get('/play', Auth.mustLogin, (req, res) => {
         } else {
             // if the request is completely invalid 
             // user is redirected to the higher level unlocked by the user
+<<<<<<< HEAD
             res.redirect(`/play?level=lv_${req.user.level}`);
+=======
+            res.redirect(`${baseUrl}/play?level=lv_${req.user.level}`);
+
+>>>>>>> 8b160f7901cffbae481a07b7bde2ac37086616ae
         };
     }
 });
 
 // check answer | / api
+<<<<<<< HEAD
 app.post('/answerCheck', async (req, res) => {
+=======
+app.post(`${baseUrl}/answerCheck`, async (req, res) => {
+
+>>>>>>> 8b160f7901cffbae481a07b7bde2ac37086616ae
     let allAnswers = gdb; // all games data
     let currentQ = {}; // for stoirng current questions object form db
     let answer = req.body.answer.toLowerCase().trim(); // getting and correcting the spaces and format of answer for request
@@ -206,19 +263,34 @@ app.post('/answerCheck', async (req, res) => {
     };
 });
 // login page | / normal endpoint
+<<<<<<< HEAD
 app.get("/login", Auth.mustLogout, (req, res) => {
+=======
+app.get(`${baseUrl}/login`, Auth.mustLogout, (req, res) => {
+
+>>>>>>> 8b160f7901cffbae481a07b7bde2ac37086616ae
     // check if theh user is logged out using the custom made 'mustLogout' middleware.
     // rendering the login page
     res.render("partials/login", { layout: `${__dirname}/views/auth` });
 });
 // signin page | / normal endpoint
+<<<<<<< HEAD
 app.get("/signup", Auth.mustLogout, (req, res) => {
+=======
+app.get(`${baseUrl}/signup`, Auth.mustLogout, (req, res) => {
+
+>>>>>>> 8b160f7901cffbae481a07b7bde2ac37086616ae
     // check if theh user is logged out using the custom made 'mustLogout' middleware.
     // rendering the signup page
     res.render("partials/signup", { layout: `${__dirname}/views/auth` });
 });
 // login with email and password | / api
+<<<<<<< HEAD
 app.post("/login", Auth.mustLogoutApi, (req, res) => {
+=======
+app.post(`${baseUrl}/login`, Auth.mustLogoutApi, (req, res) => {
+
+>>>>>>> 8b160f7901cffbae481a07b7bde2ac37086616ae
     // this endpoint is used to validate the inputs from user and login a existing user
     // passing arguments to login module we created
     Auth.loginUser(req).then((user) => {
@@ -248,7 +320,12 @@ app.post("/login", Auth.mustLogoutApi, (req, res) => {
     });
 });
 // signin using email and password | / api
+<<<<<<< HEAD
 app.post("/signup", Auth.mustLogoutApi, (req, res) => {
+=======
+app.post(`${baseUrl}/signup`, Auth.mustLogoutApi, (req, res) => {
+
+>>>>>>> 8b160f7901cffbae481a07b7bde2ac37086616ae
     // this endpoint is for validating and create new user and logs user for first time
     // this endpoint is only acessable if user is logged out
     // validates and returns a promise using the module we created
@@ -280,7 +357,12 @@ app.post("/signup", Auth.mustLogoutApi, (req, res) => {
     });
 });
 // login as guest | / api
+<<<<<<< HEAD
 app.post("/guestLogin", Auth.mustLogoutApi, (req, res) => {
+=======
+app.post(`${baseUrl}/guestLogin`, Auth.mustLogoutApi, (req, res) => {
+
+>>>>>>> 8b160f7901cffbae481a07b7bde2ac37086616ae
     // this endpoint is only acessable if usr is not logged in 
     // create a sesson for guest user
     req.session.user = {
@@ -294,7 +376,7 @@ app.post("/guestLogin", Auth.mustLogoutApi, (req, res) => {
     });
 });
 // logout
-app.post('/logout', Auth.mustLoginApi, (req, res) => {
+app.post(`${baseUrl}/logout`, Auth.mustLoginApi, (req, res) => {
     req.session.destroy();
     res.send({ status: "sucess", message: 'Logout sucess' });
 });

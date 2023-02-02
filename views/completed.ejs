@@ -5,6 +5,9 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>You did it</title>
+    <script>
+        window.base_url = `<%=base_url%>`;
+    </script>
 </head>
 <body>
     <style>
@@ -37,6 +40,6 @@
         }
     </style>
     <h1>Mission completed</h1>
-    <button onclick="window.location.href='/'">Go back to home</button>
+    <button onclick="window.location.href='<%=base_url%>/'">Go back to home</button>
 </body>
 </html>

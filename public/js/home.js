@@ -4,7 +4,7 @@ const Auth = {
 
         try {
             
-            var data = await fetch('/logout',{
+            var data = await fetch(`${base_url}/logout`,{
                 method:'POST',
                 headers:{
                     'Content-Type': 'application/json'
@@ -16,7 +16,7 @@ const Auth = {
     
             data = await data.json();
     
-            window.location.href = '/login';
+            window.location.href = `${base_url}/login`;
 
         } catch (error) {
             console.log(error);
