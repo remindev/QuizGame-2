@@ -15,15 +15,15 @@
 
 Login page
 
-![image](https://remintroy.github.io/QuizGame-2/info/thump01.png)
+![Login page](https://github.com/remintroy/quiz-game/assets/86014784/85dcc472-a330-4f13-9677-a15f05a51f62)
 
 Home page
 
-![image](https://remintroy.github.io/QuizGame-2/info/thump02.png)
+![Home page](https://github.com/remintroy/quiz-game/assets/86014784/90e171f1-64ee-4e70-84f5-379eb096ab01)
 
 Game play
 
-![image](https://remintroy.github.io/QuizGame-2/info/thump03.png)
+![Game play](https://github.com/remintroy/quiz-game/assets/86014784/e208c179-fa0c-4678-9e76-9fcdc845db75)
 
 **Implimentation**
 
